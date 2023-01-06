@@ -44,7 +44,7 @@ class DepartmentController extends Controller
     {
         Department::create($request->all());
 
-        return Redirect::route('departments.index');
+        return Redirect::route('departments.index')->with('success', 'Department Created Successfully');
     }
 
     /**

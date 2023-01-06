@@ -76,7 +76,7 @@
                     <div class="pt-4 pb-1 border-t border-gray-200">
                         <div class="flex items-center px-4">
                             <div class="font-medium text-base text-gray-800">{{ $page.props.auth.user.name }}</div>
-                            <div class="font-medium text-sm text-gray-500">{{ $page.props.auth.user.email }}</div>
+                            <div class="font-medium text-sm text-gray-500 ml-2">{{ $page.props.auth.user.email }}</div>
                         </div>
 
                         <div class="mt-3 space-y-1">
@@ -97,6 +97,7 @@
 
             <!-- Page Content -->
             <main>
+                <FlashMessage></FlashMessage>
                 <slot />
             </main>
         </div>
@@ -109,6 +110,7 @@
     import BreezeDropdownLink from '@/Components/DropdownLink'
     import BreezeNavLink from '@/Components/NavLink'
     import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink'
+    import FlashMessage from '@/Components/FlashMessage'
 
     export default {
         components: {
@@ -117,6 +119,7 @@
             BreezeDropdownLink,
             BreezeNavLink,
             BreezeResponsiveNavLink,
+            FlashMessage
         },
 
         data() {
