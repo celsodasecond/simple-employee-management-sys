@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-6 -mb-1 flex flex-wrap">
+    <div class="mt-6 -mb-1 flex flex-wrap justify-center">
         <template v-for="link in links" v-bind:key="link">
             <div v-if="link.url === null" class="mr-1 mb-1 px-4 py-3 text-sm border rounded text-gray-400"
                 v-html="link.label">
@@ -16,6 +16,8 @@
 
 <script>
 export default {
+  methods: {
+  },
     props: {
         links: Array,
     },
