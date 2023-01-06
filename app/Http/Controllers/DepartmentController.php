@@ -15,7 +15,7 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $departments = Department::orderBy('name')->get();
+        $departments = Department::orderBy('name')->paginate(10);
         
         return Inertia::render('Departments/Index', [
             'departments' => $departments

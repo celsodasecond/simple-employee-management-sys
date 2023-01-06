@@ -18,8 +18,7 @@
                                 <TableData>Phone</TableData>
                                 <TableData>Actions</TableData>
                             </template>
-
-                            <tr v-for="department in departments" :key="department.id" class="hover:bg-gray-200">
+                            <tr v-for="department in departments.data" :key="department.id" class="hover:bg-gray-200">
                                 <TableData>{{ department.id }}</TableData>
                                 <TableData>{{ department.name }}</TableData>
                                 <TableData>{{ department.email }}</TableData>
@@ -27,6 +26,8 @@
                                 <TableData></TableData>
                             </tr>
                         </Table>
+
+                        <Pagination :links="departments.links" />
                     </div>
                 </div>
             </div>
@@ -38,12 +39,14 @@
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated'
 import TableData from '@/Components/TableData'
 import Table from '@/Components/Table'
+import Pagination from '@/Components/Pagination'
 
 export default {
     components: {
         BreezeAuthenticatedLayout,
         TableData,
-        Table
+        Table,
+        Pagination
     },
 
     props: {
