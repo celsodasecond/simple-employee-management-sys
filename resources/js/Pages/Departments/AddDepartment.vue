@@ -40,6 +40,7 @@
 
                             <!-- submit -->
                             <div class="flex items-center justify-end mt-4">
+                                <ResetButton @click="resetForm">Clear Form</ResetButton>
                                 <Button :loading="form.processing">Create</Button>
                             </div>
                         </form>
@@ -57,6 +58,7 @@ import Label from '@/Components/Label'
 import Input from '@/Components/Input'
 import InputError from '@/Components/InputError'
 import Button from '@/Components/Button'
+import ResetButton from '@/Components/ResetButton'
 import { useForm } from '@inertiajs/inertia-vue3'
 
 export default {
@@ -66,7 +68,8 @@ export default {
         Label,
         Input,
         InputError,
-        Button
+        Button,
+        ResetButton
     },
     setup() {
         const form = useForm({
@@ -80,6 +83,10 @@ export default {
     methods: {
         submit() {
             this.form.post(route('departments.store'));
+        },
+        resetForm() {
+            this.form.clearErrors();
+            this.form.reset();
         }
     }
 }
