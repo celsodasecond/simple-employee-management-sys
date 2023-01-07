@@ -73,6 +73,7 @@
 
         methods: {
             submit() {
+                
                 this.form.post(this.route('login'), {
                     onFinish: () => this.form.reset('password'),
                 })

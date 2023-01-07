@@ -24,8 +24,8 @@
                 <TableData>{{ department.email }}</TableData>
                 <TableData>{{ department.phone }}</TableData>
                 <TableData>
-                    <AnchorLink :href="route('departments.edit', department.id)">Edit</AnchorLink>
-
+                    <AnchorLink mode="edit" :href="route('departments.edit', department.id)">Edit</AnchorLink>
+                    <AnchorLink mode="delete" @click="destroy(department.id)">Delete</AnchorLink>
                 </TableData>
             </tr>
         </Table>
@@ -43,6 +43,7 @@ import Pagination from '@/Components/Pagination'
 import AnchorLink from '@/Components/AnchorLink'
 
 export default {
+
     components: {
         BreezeAuthenticatedLayout,
         TableData,
@@ -50,9 +51,15 @@ export default {
         Pagination,
         AnchorLink
     },
-
     props: {
         departments: Object,
     },
+    methods: {
+        destroy(id) {
+            if (confirm("Do you really want to delete this department?")) {
+                this.$inertia.delete(route('departments.destroy', id));
+            }
+        }
+    }
 }
 </script>
