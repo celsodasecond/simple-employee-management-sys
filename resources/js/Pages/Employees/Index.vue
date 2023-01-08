@@ -8,8 +8,8 @@
 
 
         <div class="flex items-center justify-between mb-6">
-            <Select id="department_id" class="mt-1 block w-1/3" v-model="department_id"
-                :options="departments" @change="getEmployees(department_id)"></Select>
+            <Select id="department_id" class="mt-1 block w-1/3" v-model="department_id" :options="departments"
+                @change="getEmployees(department_id)"></Select>
             <AnchorLink :href="route('employees.create')">Add New Employee</AnchorLink>
         </div>
         <Table>
@@ -62,8 +62,9 @@ export default {
                 this.$inertia.delete(route('employees.destroy', id));
             }
         },
+        // To render only the employees and department id and not the whole department.
         getEmployees(department_id) {
-            this.$inertia.get(route('employees.index'), {department_id: department_id})
+            this.$inertia.get(route('employees.index'), { department_id: department_id }, { only: ['employees', 'department_id'] })
         }
     }
 }

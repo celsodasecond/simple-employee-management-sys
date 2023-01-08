@@ -36,13 +36,15 @@ class EmployeeController extends Controller
                         'department' => $employee->department->name ?? null,
                     ];
                 }),
-            'departments' => Department::orderBy('name')->get()
+            'departments' => function () {
+            return Department::orderBy('name')->get()
                 ->transform(function ($d) {
                     return [
                         'id' => $d->id,
                         'label' =>  $d->name
                     ];
-                })
+                });
+            }
         ]);
     }
 

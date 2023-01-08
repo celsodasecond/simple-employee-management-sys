@@ -16492,9 +16492,12 @@ __webpack_require__.r(__webpack_exports__);
         this.$inertia["delete"](route('employees.destroy', id));
       }
     },
+    // To render only the employees and department id and not the whole department.
     getEmployees: function getEmployees(department_id) {
       this.$inertia.get(route('employees.index'), {
         department_id: department_id
+      }, {
+        only: ['employees', 'department_id']
       });
     }
   }
