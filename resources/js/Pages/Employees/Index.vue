@@ -7,7 +7,9 @@
         </template>
 
 
-        <div class="flex items-center justify-end mb-6">
+        <div class="flex items-center justify-between mb-6">
+            <Select id="department_id" class="mt-1 block w-1/3" v-model="department_id"
+                :options="departments" @change="getEmployees(department_id)"></Select>
             <AnchorLink :href="route('employees.create')">Add New Employee</AnchorLink>
         </div>
         <Table>
@@ -18,7 +20,7 @@
                 <TableData>Email</TableData>
                 <TableData>Actions</TableData>
             </template>
-            <tr v-for="employee in employees.data" :key="employee.id" class="hover:bg-gray-200">
+            <tr v-for="employee in employees" :key="employee.id" class="hover:bg-gray-200">
                 <TableData>{{ employee.id }}</TableData>
                 <TableData>{{ employee.name }}</TableData>
                 <TableData>{{ employee.department }}</TableData>
@@ -30,8 +32,6 @@
             </tr>
         </Table>
 
-        <Pagination :links="employees.links" />
-
     </breeze-authenticated-layout>
 </template>
 
@@ -39,8 +39,8 @@
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated'
 import TableData from '@/Components/TableData'
 import Table from '@/Components/Table'
-import Pagination from '@/Components/Pagination'
 import AnchorLink from '@/Components/AnchorLink'
+import Select from '@/Components/Select'
 
 export default {
 
@@ -48,17 +48,22 @@ export default {
         BreezeAuthenticatedLayout,
         TableData,
         Table,
-        Pagination,
-        AnchorLink
+        AnchorLink,
+        Select
     },
     props: {
         employees: Object,
+        departments: Object,
+        department_id: [String, Number]
     },
     methods: {
         destroy(id) {
             if (confirm("Do you really want to delete this department?")) {
                 this.$inertia.delete(route('employees.destroy', id));
             }
+        },
+        getEmployees(department_id) {
+            this.$inertia.get(route('employees.index'), {department_id: department_id})
         }
     }
 }
