@@ -26,6 +26,8 @@
                 <TableData>
                     <AnchorLink mode="edit" :href="route('departments.edit', department.id)">Edit</AnchorLink>
                     <AnchorLink mode="delete" @click="destroy(department.id)">Delete</AnchorLink>
+                    <!-- Get the list of employees in the employee page -->
+                    <AnchorLink mode="view" @click="employees(department.id)">View</AnchorLink>
                 </TableData>
             </tr>
         </Table>
@@ -59,6 +61,13 @@ export default {
             if (confirm("Do you really want to delete this department?")) {
                 this.$inertia.delete(route('departments.destroy', id));
             }
+        },
+        employees(department_id) {
+            this.$inertia.visit(route('employees.index'), {
+                method: "get",
+                data: { department_id: department_id }
+            });
+            // this.$inertia.get(route('employees.index'), { department_id: department_id });
         }
     }
 }

@@ -16307,6 +16307,15 @@ __webpack_require__.r(__webpack_exports__);
       if (confirm("Do you really want to delete this department?")) {
         this.$inertia["delete"](route('departments.destroy', id));
       }
+    },
+    employees: function employees(department_id) {
+      this.$inertia.visit(route('employees.index'), {
+        method: "get",
+        data: {
+          department_id: department_id
+        }
+      });
+      // this.$inertia.get(route('employees.index'), { department_id: department_id });
     }
   }
 });
@@ -18226,6 +18235,7 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNod
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Actions");
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit");
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Delete");
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("View");
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_AnchorLink = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("AnchorLink");
   var _component_TableData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TableData");
@@ -18321,6 +18331,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 }, {
                   "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
                     return [_hoisted_10];
+                  }),
+                  _: 2 /* DYNAMIC */
+                }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Get the list of employees in the employee page "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_AnchorLink, {
+                  mode: "view",
+                  onClick: function onClick($event) {
+                    return $options.employees(department.id);
+                  }
+                }, {
+                  "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                    return [_hoisted_11];
                   }),
                   _: 2 /* DYNAMIC */
                 }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["onClick"])];
