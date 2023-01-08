@@ -16309,7 +16309,8 @@ __webpack_require__.r(__webpack_exports__);
     destroy: function destroy(id) {
       if (confirm("Do you really want to delete this department?")) {
         this.$inertia["delete"](route('departments.destroy', id), {
-          preserveScroll: false
+          preserveScroll: false,
+          preserveState: false
         });
       }
     },
@@ -16507,7 +16508,8 @@ __webpack_require__.r(__webpack_exports__);
     destroy: function destroy(id) {
       if (confirm("Do you really want to delete this department?")) {
         this.$inertia["delete"](route('employees.destroy', id), {
-          preserveScroll: true
+          preserveScroll: true,
+          preserveState: false
         });
       }
     },

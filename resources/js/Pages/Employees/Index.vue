@@ -61,7 +61,7 @@ export default {
     methods: {
         destroy(id) {
             if (confirm("Do you really want to delete this department?")) {
-                this.$inertia.delete(route('employees.destroy', id), { preserveScroll: true });
+                this.$inertia.delete(route('employees.destroy', id), { preserveScroll: true, preserveState: false });
             }
         },
         // To render only the employees and department id and not the whole department.
