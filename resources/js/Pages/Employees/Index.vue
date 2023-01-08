@@ -1,9 +1,9 @@
 <template>
     <breeze-authenticated-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <Heading>
                 Employees
-            </h2>
+            </Heading>
         </template>
 
 
@@ -41,6 +41,7 @@ import TableData from '@/Components/TableData'
 import Table from '@/Components/Table'
 import AnchorLink from '@/Components/AnchorLink'
 import Select from '@/Components/Select'
+import Heading from '@/Components/Heading'
 
 export default {
 
@@ -49,7 +50,8 @@ export default {
         TableData,
         Table,
         AnchorLink,
-        Select
+        Select,
+        Heading
     },
     props: {
         employees: Object,

@@ -1,9 +1,9 @@
 <template>
     <breeze-authenticated-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <Heading>
                 Departments
-            </h2>
+            </Heading>
         </template>
 
 
@@ -43,6 +43,7 @@ import TableData from '@/Components/TableData'
 import Table from '@/Components/Table'
 import Pagination from '@/Components/Pagination'
 import AnchorLink from '@/Components/AnchorLink'
+import Heading from '@/Components/Heading'
 
 export default {
 
@@ -51,7 +52,8 @@ export default {
         TableData,
         Table,
         Pagination,
-        AnchorLink
+        AnchorLink,
+        Heading
     },
     props: {
         departments: Object,

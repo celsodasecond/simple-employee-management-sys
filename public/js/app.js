@@ -16286,6 +16286,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Table */ "./resources/js/Components/Table.vue");
 /* harmony import */ var _Components_Pagination__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Pagination */ "./resources/js/Components/Pagination.vue");
 /* harmony import */ var _Components_AnchorLink__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/AnchorLink */ "./resources/js/Components/AnchorLink.vue");
+/* harmony import */ var _Components_Heading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Heading */ "./resources/js/Components/Heading.vue");
+
 
 
 
@@ -16297,7 +16299,8 @@ __webpack_require__.r(__webpack_exports__);
     TableData: _Components_TableData__WEBPACK_IMPORTED_MODULE_1__["default"],
     Table: _Components_Table__WEBPACK_IMPORTED_MODULE_2__["default"],
     Pagination: _Components_Pagination__WEBPACK_IMPORTED_MODULE_3__["default"],
-    AnchorLink: _Components_AnchorLink__WEBPACK_IMPORTED_MODULE_4__["default"]
+    AnchorLink: _Components_AnchorLink__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Heading: _Components_Heading__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   props: {
     departments: Object
@@ -16477,6 +16480,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Table */ "./resources/js/Components/Table.vue");
 /* harmony import */ var _Components_AnchorLink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/AnchorLink */ "./resources/js/Components/AnchorLink.vue");
 /* harmony import */ var _Components_Select__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Select */ "./resources/js/Components/Select.vue");
+/* harmony import */ var _Components_Heading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Heading */ "./resources/js/Components/Heading.vue");
+
 
 
 
@@ -16488,7 +16493,8 @@ __webpack_require__.r(__webpack_exports__);
     TableData: _Components_TableData__WEBPACK_IMPORTED_MODULE_1__["default"],
     Table: _Components_Table__WEBPACK_IMPORTED_MODULE_2__["default"],
     AnchorLink: _Components_AnchorLink__WEBPACK_IMPORTED_MODULE_3__["default"],
-    Select: _Components_Select__WEBPACK_IMPORTED_MODULE_4__["default"]
+    Select: _Components_Select__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Heading: _Components_Heading__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   props: {
     employees: Object,
@@ -18221,9 +18227,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "font-semibold text-xl text-gray-800 leading-tight"
-}, " Departments ", -1 /* HOISTED */);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Departments ");
 var _hoisted_2 = {
   "class": "flex items-center justify-end mb-6"
 };
@@ -18237,6 +18241,7 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNod
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Delete");
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("View");
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Heading = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Heading");
   var _component_AnchorLink = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("AnchorLink");
   var _component_TableData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TableData");
   var _component_Table = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Table");
@@ -18244,8 +18249,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_breeze_authenticated_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("breeze-authenticated-layout");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_breeze_authenticated_layout, null, {
     header: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_1];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Heading, null, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_1];
+        }),
+        _: 1 /* STABLE */
+      })];
     }),
+
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_AnchorLink, {
         href: _ctx.route('departments.create')
@@ -18614,9 +18625,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  "class": "font-semibold text-xl text-gray-800 leading-tight"
-}, " Employees ", -1 /* HOISTED */);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Employees ");
 var _hoisted_2 = {
   "class": "flex items-center justify-between mb-6"
 };
@@ -18629,6 +18638,7 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNod
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit");
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Delete");
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Heading = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Heading");
   var _component_Select = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Select");
   var _component_AnchorLink = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("AnchorLink");
   var _component_TableData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TableData");
@@ -18636,8 +18646,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_breeze_authenticated_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("breeze-authenticated-layout");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_breeze_authenticated_layout, null, {
     header: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_1];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Heading, null, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_1];
+        }),
+        _: 1 /* STABLE */
+      })];
     }),
+
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Select, {
         id: "department_id",
