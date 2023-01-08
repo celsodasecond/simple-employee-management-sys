@@ -20,11 +20,19 @@ class EmployeeController extends Controller
      */
     public function index()
     {
+        $sortby = Request::get('sortby', 'id');
+        if (!in_array($sortby, ['id', 'name', 'email'])) {
+            $sortby = 'id';
+        }
+        $sort = Request::get('sort', 'asc');
+        if (!in_array($sort, ['asc', 'desc'])) {
+            $sort = 'asc';
+        }
         //
         return Inertia::render('Employees/Index', [
             'department_id' => Request::get('department_id'),
 
-            'employees' => Employee::orderBy('id', 'DESC')
+            'employees' => Employee::orderBy($sortby, ($sort == 'asc') ? 'ASC' : 'DESC')
                 ->with('department')
                 ->whereDepartment(Request::get('department_id'))
                 ->get()
@@ -36,14 +44,16 @@ class EmployeeController extends Controller
                         'department' => $employee->department->name ?? null,
                     ];
                 }),
+            'sortby' => $sortby,
+            'sort' => $sort,
             'departments' => function () {
-            return Department::orderBy('name')->get()
-                ->transform(function ($d) {
-                    return [
-                        'id' => $d->id,
-                        'label' =>  $d->name
-                    ];
-                });
+                return Department::orderBy('name')->get()
+                    ->transform(function ($d) {
+                        return [
+                            'id' => $d->id,
+                            'label' =>  $d->name
+                        ];
+                    });
             }
         ]);
     }

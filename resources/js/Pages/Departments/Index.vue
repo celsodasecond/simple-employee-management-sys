@@ -12,9 +12,12 @@
         </div>
         <Table>
             <template #header>
-                <TableData>Id</TableData>
-                <TableData>Name</TableData>
-                <TableData>Email</TableData>
+                <TableData @click="sortColumn('id')" :sortHeader="true" field="id" :sortby=sortby :sort=sort>Id
+                </TableData>
+                <TableData @click="sortColumn('name')" :sortHeader="true" field="name" :sortby=sortby :sort=sort>Name
+                </TableData>
+                <TableData @click="sortColumn('email')" :sortHeader="true" field="email" :sortby=sortby :sort=sort>Email
+                </TableData>
                 <TableData>Phone</TableData>
                 <TableData>Actions</TableData>
             </template>
@@ -57,6 +60,8 @@ export default {
     },
     props: {
         departments: Object,
+        sortby: String,
+        sort: String
     },
     methods: {
         destroy(id) {
@@ -70,6 +75,20 @@ export default {
                 data: { department_id: department_id }
             });
             // this.$inertia.get(route('employees.index'), { department_id: department_id });
+        },
+        sortColumn(col) {
+            var sort = this.sort;
+            if (col == this.sortby) {
+                if (this.sort == 'asc') {
+                    sort = 'desc';
+                } else {
+                    sort = 'asc';
+                }
+            }
+
+            this.$inertia.get(route('departments.index'), {
+                'sortby': col, sort: sort, page: this.departments.current_page
+            }, { preserveScroll: true })
         }
     }
 }

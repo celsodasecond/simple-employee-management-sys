@@ -14,8 +14,10 @@
         </div>
         <Table>
             <template #header>
-                <TableData>Id</TableData>
-                <TableData>Name</TableData>
+                <TableData @click="sortColumn('id')" :sortHeader="true" field="id" :sortby=sortby :sort=sort>Id
+                </TableData>
+                <TableData @click="sortColumn('name')" :sortHeader="true" field="name" :sortby=sortby :sort=sort>Name
+                </TableData>
                 <TableData>Department</TableData>
                 <TableData>Email</TableData>
                 <TableData>Actions</TableData>
@@ -56,7 +58,9 @@ export default {
     props: {
         employees: Object,
         departments: Object,
-        department_id: [String, Number]
+        department_id: [String, Number],
+        sortby: String,
+        sort: String
     },
     methods: {
         destroy(id) {
@@ -67,6 +71,20 @@ export default {
         // To render only the employees and department id and not the whole department.
         getEmployees(department_id) {
             this.$inertia.get(route('employees.index'), { department_id: department_id }, { only: ['employees', 'department_id'] })
+        },
+        sortColumn(col) {
+            var sort = this.sort;
+            if (col == this.sortby) {
+                if (this.sort == 'asc') {
+                    sort = 'desc';
+                } else {
+                    sort = 'asc';
+                }
+            }
+
+            this.$inertia.get(route('employees.index'), {
+                'sortby': col, sort: sort, page: this.employees.current_page
+            }, { preserveScroll: true })
         }
     }
 }
