@@ -16308,7 +16308,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     destroy: function destroy(id) {
       if (confirm("Do you really want to delete this department?")) {
-        this.$inertia["delete"](route('departments.destroy', id));
+        this.$inertia["delete"](route('departments.destroy', id), {
+          preserveScroll: false
+        });
       }
     },
     employees: function employees(department_id) {
@@ -16504,7 +16506,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     destroy: function destroy(id) {
       if (confirm("Do you really want to delete this department?")) {
-        this.$inertia["delete"](route('employees.destroy', id));
+        this.$inertia["delete"](route('employees.destroy', id), {
+          preserveScroll: true
+        });
       }
     },
     // To render only the employees and department id and not the whole department.
