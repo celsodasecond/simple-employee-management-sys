@@ -49,6 +49,9 @@
                                     </template>
 
                                     <template #content>
+                                        <breeze-responsive-nav-link :href="route('edit-profile')">
+                                            Edit Profile
+                                        </breeze-responsive-nav-link>
                                         <breeze-dropdown-link :href="route('logout')" method="post" as="button">
                                             Log Out
                                         </breeze-dropdown-link>
@@ -100,6 +103,9 @@
                         </div>
 
                         <div class="mt-3 space-y-1">
+                            <breeze-responsive-nav-link :href="route('edit-profile')">
+                                Edit Profile
+                            </breeze-responsive-nav-link>
                             <breeze-responsive-nav-link :href="route('logout')" method="post" as="button">
                                 Log Out
                             </breeze-responsive-nav-link>
