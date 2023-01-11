@@ -74,7 +74,10 @@ export default {
     },
     methods: {
         submit() {
-            this.form.post(route("employees.store"));
+            this.form.post(route("employees.store"), {
+                // Preserve the scroll only if the form has errors.
+                preserveScroll: (page) => Object.keys(page.props.errors).length
+            });
         },
         resetForm() {
             this.form.clearErrors();

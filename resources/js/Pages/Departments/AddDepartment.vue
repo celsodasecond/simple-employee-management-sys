@@ -6,8 +6,6 @@
             </Heading>
         </template>
 
-
-
         <div v-show="form.hasErrors">
             <div class="text-red-600 font-medium">Please make the following corrections</div>
         </div>
@@ -78,7 +76,10 @@ export default {
     },
     methods: {
         submit() {
-            this.form.post(route('departments.store'));
+            this.form.post(route('departments.store'), {
+                // Preserve the scroll only if the form has errors.
+                preserveScroll: (page) => Object.keys(page.props.errors).length
+            });
         },
         resetForm() {
             this.form.clearErrors();

@@ -16227,7 +16227,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
-      this.form.post(route('departments.store'));
+      this.form.post(route('departments.store'), {
+        // Preserve the scroll only if the form has errors.
+        preserveScroll: function preserveScroll(page) {
+          return Object.keys(page.props.errors).length;
+        }
+      });
     },
     resetForm: function resetForm() {
       this.form.clearErrors();
@@ -16439,7 +16444,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
-      this.form.post(route("employees.store"));
+      this.form.post(route("employees.store"), {
+        // Preserve the scroll only if the form has errors.
+        preserveScroll: function preserveScroll(page) {
+          return Object.keys(page.props.errors).length;
+        }
+      });
     },
     resetForm: function resetForm() {
       this.form.clearErrors();
