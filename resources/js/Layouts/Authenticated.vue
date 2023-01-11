@@ -19,10 +19,10 @@
                                     Dashboard
                                 </breeze-nav-link>
                                 <breeze-nav-link :href="route('departments.index')"
-                                    :active="route().current('departments.index')">
+                                    :active="isActive('department')">
                                     Departments
                                 </breeze-nav-link>
-                                <breeze-nav-link :href="route('employees.index')" :active="route().current('employees.index')">
+                                <breeze-nav-link :href="route('employees.index')" :active="isActive('employee')">
                                     Employees
                                 </breeze-nav-link>
                             </div>
@@ -87,10 +87,10 @@
                             Dashboard
                         </breeze-responsive-nav-link>
                         <breeze-responsive-nav-link :href="route('departments.index')"
-                            :active="route().current('departments.index')">
+                            :active="isActive('department')">
                             Departments
                         </breeze-responsive-nav-link>
-                        <breeze-responsive-nav-link :href="route('employees.index')" :active="route().current('employees.index')">
+                        <breeze-responsive-nav-link :href="route('employees.index')" :active="isActive('employee')">
                             Employees
                         </breeze-responsive-nav-link>
                     </div>
@@ -161,5 +161,15 @@ export default {
             showingNavigationDropdown: false,
         }
     },
+
+    methods: {
+        isActive(str) {
+            var locationURL = location.pathname.substring(1);
+            if (locationURL.startsWith(str)) {
+                return true;
+            }
+            return false;
+        }
+    }
 }
 </script>
