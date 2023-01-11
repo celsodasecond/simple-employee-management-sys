@@ -16,7 +16,7 @@
 
                     <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 ">
                         <inertia-link :href="route('login')"
-                            class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+                            class="animate__animated animate__bounce whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
                             :class="{hidden: $page.props.auth.user}">
                             Sign in
                         </inertia-link>
@@ -42,8 +42,8 @@
                     </div>
                     <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
                         <h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                            <span class="block text-white">Take control of your</span>
-                            <span class="block text-indigo-200">Organization</span>
+                            <span class="animate__animated animate__fadeInLeft  block text-white">Take control of your</span>
+                            <span class="animate__animated animate__fadeInRight  block text-indigo-200">Organization</span>
                         </h1>
                         <p class="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">Streamline your workforce with our employee management system - boosting productivity and communication in one
                         easy-to-use platform.</p>
@@ -83,6 +83,7 @@ import {
     XIcon,
 } from '@heroicons/vue/outline'
 import { ChevronDownIcon } from '@heroicons/vue/solid'
+import 'animate.css';
 export default {
     props: {
         auth: Object,
