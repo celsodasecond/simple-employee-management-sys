@@ -9,7 +9,7 @@
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
                                 <inertia-link :href="route('dashboard')">
-                                    <breeze-application-logo class="block h-9 w-auto" />
+                                    <breeze-application-logo />
                                 </inertia-link>
                             </div>
 
@@ -145,6 +145,7 @@ import BreezeDropdownLink from '@/Components/DropdownLink'
 import BreezeNavLink from '@/Components/NavLink'
 import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink'
 import FlashMessage from '@/Components/FlashMessage'
+import 'animate.css';
 
 export default {
     components: {

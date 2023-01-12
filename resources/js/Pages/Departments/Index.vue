@@ -10,7 +10,7 @@
         <div class="flex items-center justify-end mb-6">
             <AnchorLink :href="route('departments.create')">Add Department</AnchorLink>
         </div>
-        <Table>
+        <Table class="animate__animated animate__fadeInUp">
             <template #header>
                 <TableData @click="sortColumn('id')" :sortHeader="true" field="id" :sortby=sortby :sort=sort>Id
                 </TableData>
@@ -47,6 +47,7 @@ import Table from '@/Components/Table'
 import Pagination from '@/Components/Pagination'
 import AnchorLink from '@/Components/AnchorLink'
 import Heading from '@/Components/Heading'
+import 'animate.css'
 
 export default {
 

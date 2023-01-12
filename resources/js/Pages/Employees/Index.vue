@@ -12,7 +12,7 @@
                 @change="getEmployees(department_id)"></Select>
             <AnchorLink :href="route('employees.create')">Add New Employee</AnchorLink>
         </div>
-        <Table>
+        <Table class="animate__animated animate__fadeInUp">
             <template #header>
                 <TableData @click="sortColumn('id')" :sortHeader="true" field="id" :sortby=sortby :sort=sort>Id
                 </TableData>
@@ -44,6 +44,7 @@ import Table from '@/Components/Table'
 import AnchorLink from '@/Components/AnchorLink'
 import Select from '@/Components/Select'
 import Heading from '@/Components/Heading'
+import 'animate.css'
 
 export default {
 
